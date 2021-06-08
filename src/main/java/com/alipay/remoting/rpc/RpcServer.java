@@ -317,6 +317,7 @@ public class RpcServer extends AbstractRemotingServer {
                     pipeline.addLast("idleStateHandler", new IdleStateHandler(0, 0, idleTime,
                         TimeUnit.MILLISECONDS));
                     pipeline.addLast("serverIdleHandler", serverIdleHandler);
+                    // 默认90秒空闲检查时间
                 }
                 pipeline.addLast("connectionEventHandler", connectionEventHandler);
                 pipeline.addLast("handler", rpcHandler);
